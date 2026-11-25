@@ -7,6 +7,12 @@ let prices = document.querySelectorAll(".price")
 let table = document.querySelector("table")
 
 let totalprice = 0
+let lastrow = document.createElement("tr");
+lastrow.innerHTML = `<td> Total Price </td>
+                    <td class="total"> ${totalprice} </td>`
+table.appendChild(lastrow);
+
+
 
 const getSum = () => {
 //Add your code here
@@ -15,11 +21,8 @@ const getSum = () => {
 		totalprice += Number(price.textContent)
 	})
 
+	document.querySelector(".total").textContent = totalprice
 
-	let lastrow = document.createElement("tr");
-	lastrow.innerHTML += `<td> total price </td>
-		<td>${totalprice}</td>`
-	table.appendChild(lastrow);
 };
 
 getSumBtn.addEventListener("click", getSum);
